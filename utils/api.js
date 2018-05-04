@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (args) => {
+  await new Promise(resolve => setTimeout(resolve, 1500));
   const requestConfig = {
     headers: {'Content-Type': 'application/json'},
     baseURL: 'https://addons.mozilla.org/api/v3/',

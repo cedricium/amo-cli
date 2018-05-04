@@ -1,7 +1,7 @@
 {
   "name": "amo-cli",
   "version": "0.1.0",
-  "description": "A command-line application used for interacting with addons.mozilla.org.",
+  "description": "A CLI tool used to interact with the Firefox AMO (https://addons.mozilla.org).",
   "main": "index.js",
   "scripts": {},
   "bin": {

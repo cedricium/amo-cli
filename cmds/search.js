@@ -14,13 +14,14 @@ module.exports = async (args) => {
   const INDENT_1 = '   ';
 
   const query = args['query'] || args.q;
-  const spinner = ora({spinner: firefox, text: `searching for add-ons - ${query}`}).start();
+  const spinner = ora({spinner: firefox, text: 'searching for add-ons'.dim}).start();
 
   try {
     const pageSize = args['page-size'] || args.p;
     const type = args['type'] || args.t;
     const showUrl = args['show-url'] || args.u;
-    
+    const sort = args['sort'] || args.s;
+
     const queryParams = {
       url: '/addons/search',
       params: {
@@ -28,6 +29,7 @@ module.exports = async (args) => {
         'app': 'firefox',
         'lang': 'en-US',
         'page_size': pageSize,
+        'sort': sort,
         'type': type
       }
     };

@@ -1,0 +1,26 @@
+{
+  "name": "amo-cli",
+  "version": "0.1.0",
+  "description": "A command-line application used for interacting with addons.mozilla.org.",
+  "main": "index.js",
+  "scripts": {},
+  "bin": {
+    "amo": "bin/amo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cedricium/amo-cli.git"
+  },
+  "author": "Cedric Amaya <amaya.cedric@gmail.com> (http://cedricamaya.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cedricium/amo-cli/issues"
+  },
+  "homepage": "https://github.com/cedricium/amo-cli#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.2.3",
+    "minimist": "^1.2.0",
+    "ora": "^2.1.0"
+  }
+}

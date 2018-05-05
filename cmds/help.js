@@ -23,21 +23,21 @@ ${commands}
 ${'list featured add-ons matching some parameters'.bold}
 
 ${flags}
- ${'--language, -l'.padEnd(16)} ${'add-ons featured for this specific language'.dim}
- ${'--page-size, -p'.padEnd(16)} ${'the number of add-ons to get'.dim}
- ${'--show-url, -u'.padEnd(16)} ${`display the add-on's AMO url`.dim}
- ${'--type, -t'.padEnd(16)} ${'filter by add-on type'.dim}\n`,
- 
+ ${'-l, --language'.padEnd(16)} ${'add-ons featured for this specific language'.dim}
+ ${'-p, --page-size'.padEnd(16)} ${'the number of add-ons to get'.dim}
+ ${'-u, --show-url'.padEnd(16)} ${`display the add-on's AMO url`.dim}
+ ${'-t, --type'.padEnd(16)} ${'filter by add-on type'.dim}\n`,
+
   search: `${usage} amo search ${flagsOptional}
 
 ${'search through public add-ons with the ability to filter results'.bold}
 
 ${flags}
- ${'--query, -q'.padEnd(16)} ${'the search query (maximum allowed length is 100 characters'.dim}
- ${'--page-size, -p'.padEnd(16)} ${'the number of add-ons to get'.dim}
- ${'--show-url, -u'.padEnd(16)} ${`display the add-on's AMO url`.dim}
- ${'--sort, -s'.padEnd(16)} ${'sorting parameters'.dim}
- ${'--type, -t'.padEnd(16)} ${'filter by add-on type'.dim}\n`,
+ ${'-q, --query'.padEnd(16)} ${'the search query (maximum allowed length is 100 characters'.dim}
+ ${'-p, --page-size'.padEnd(16)} ${'the number of add-ons to get'.dim}
+ ${'-u, --show-url'.padEnd(16)} ${`display the add-on's AMO url`.dim}
+ ${'-s, --sort'.padEnd(16)} ${'sorting parameters'.dim}
+ ${'-t, --type'.padEnd(16)} ${'filter by add-on type'.dim}\n`,
 };
 
 module.exports = (args) => {

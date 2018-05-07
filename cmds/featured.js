@@ -16,17 +16,16 @@ module.exports = async (args) => {
   const spinner = ora({spinner: firefox, text: 'fetching the latest featured-addons'.dim}).start();
 
   try {
-    const language = args['language'] || args.l;
     const pageSize = args['page-size'] || args.p;
     const type = args['type'] || args.t;
     const showUrl = args['show-url'] || args.u;
     const interactiveMode = args['interactive'] || args.i;
-    
+
     const queryParams = {
       url: '/addons/featured',
       params: {
         'app': 'firefox',
-        'lang': language || 'en-US',
+        'lang': 'en-US',
         'page_size': pageSize,
         'type': type
       }

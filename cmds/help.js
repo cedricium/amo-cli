@@ -26,7 +26,6 @@ ${'list featured add-ons matching some parameters'.bold}
 
 ${flags}
  ${'-i, --interactive'.padEnd(18)} ${'allows for selecting add-ons to explore their full info'.dim}
- ${'-l, --language'.padEnd(18)} ${'add-ons featured for this specific language'.dim}
  ${'-p, --page-size'.padEnd(18)} ${'the number of add-ons to get'.dim}
  ${'-u, --show-url'.padEnd(18)} ${`display the add-on's AMO url`.dim}
  ${'-t, --type'.padEnd(18)} ${'filter by add-on type'.dim}\n`,

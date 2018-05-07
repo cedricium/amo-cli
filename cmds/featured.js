@@ -2,7 +2,7 @@ const api = require('../utils/api');
 const ora = require('ora');
 const colors = require('colors');
 const interactive = require('../utils/interactive');
-const { FxSpinner } = require('../utils');
+const { error, FxSpinner } = require('../utils');
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
@@ -51,6 +51,6 @@ module.exports = async (args) => {
     }
   } catch (err) {
     spinner.stop();
-    console.error(err);
+    error(err, true);
   }
 };

@@ -2,11 +2,20 @@
   "name": "amo-cli",
   "version": "0.1.0",
   "description": "A CLI tool used to interact with the Firefox AMO (https://addons.mozilla.org).",
-  "main": "index.js",
   "scripts": {},
   "bin": {
     "amo": "bin/amo"
   },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "cli",
+    "amo",
+    "addons.mozilla.org",
+    "firefox addons"
+  ],
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cedricium/amo-cli.git"
@@ -23,5 +32,6 @@
     "inquirer": "^5.2.0",
     "minimist": "^1.2.0",
     "ora": "^2.1.0"
-  }
+  },
+  "devDependencies": {}
 }

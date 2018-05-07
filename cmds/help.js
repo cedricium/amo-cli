@@ -16,7 +16,9 @@ ${commands}
  ${'featured'.padEnd(18)} ${'list featured add-ons'.dim}
  ${'search'.padEnd(18)} ${'search through public add-ons'.dim}
  ${'version'.padEnd(18)} ${'show package version'.dim}
- ${'help'.padEnd(18)} ${'show help menu for a command'.dim}\n`,
+ ${'help'.padEnd(18)} ${'show help menu for a command'.dim}
+
+See 'amo help <command>' to read about a specific subcommand.\n`,
 
   featured: `${usage} amo featured ${flagsOptional}
 

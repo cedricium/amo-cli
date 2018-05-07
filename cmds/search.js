@@ -1,6 +1,7 @@
 const api = require('../utils/api');
 const ora = require('ora');
 const colors = require('colors');
+const interactive = require('../utils/interactive');
 
 const firefox = {
   "interval": 200,
@@ -12,11 +13,11 @@ const firefox = {
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
-
-  const query = args['query'] || args.q;
   const spinner = ora({spinner: firefox, text: 'searching for add-ons'.dim}).start();
 
   try {
+    const query = args['query'] || args.q;
+    const interactiveMode = args['interactive'] || args.i;
     const pageSize = args['page-size'] || args.p;
     const type = args['type'] || args.t;
     const showUrl = args['show-url'] || args.u;
@@ -40,27 +41,31 @@ module.exports = async (args) => {
     spinner.stop();
 
     if (query)
-      console.log(`${count} add-ons for "${query}":`.bold);
+      console.log(`${count} add-ons for "${query}"`.bold);
     else
-      console.log(`${count} add-ons found:`.bold);
+      console.log(`${count} add-ons found`.bold);
 
-    addons.forEach(addon => {
-      const addonName = addon.name['en-US'] || addon.name['en-GB'] || addon.name;
-      const addonSummary = addon.summary === null
-        ? ''
-        : addon.summary['en-US'] || addon.summary['en-GB'];
-      const addonLink = addon.url;
+    if (interactiveMode && count !== 0) {
+      interactive(addons);
+    } else {
+      addons.forEach(addon => {
+        const addonName = addon.name['en-US'] || addon.name['en-GB'] || addon.name;
+        const addonSummary = addon.summary === null
+          ? ''
+          : addon.summary['en-US'] || addon.summary['en-GB'];
+        const addonLink = addon.url;
 
-      let consoleOutput = '';
+        let consoleOutput = '';
 
-      if (!showUrl) {
-        consoleOutput += `· ${addonName}`;
-        console.log(consoleOutput);
-      } else {
-        consoleOutput += `· ${addonName}\n${INDENT_1}${addonLink.blue}`;
-        console.log(consoleOutput);
-      }
-    });
+        if (!showUrl) {
+          consoleOutput += `· ${addonName}`;
+          console.log(consoleOutput);
+        } else {
+          consoleOutput += `· ${addonName}\n${INDENT_1}${addonLink.blue}`;
+          console.log(consoleOutput);
+        }
+      });
+    }
   } catch (err) {
     spinner.stop();
     console.error(err);

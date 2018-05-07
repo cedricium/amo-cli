@@ -2,18 +2,11 @@ const api = require('../utils/api');
 const ora = require('ora');
 const colors = require('colors');
 const interactive = require('../utils/interactive');
-
-const firefox = {
-  "interval": 200,
-  "frames": [
-    "🔥 ",
-    "🦊 ",
-  ]
-};
+const { FxSpinner } = require('../utils');
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
-  const spinner = ora({spinner: firefox, text: 'fetching the latest featured-addons'.dim}).start();
+  const spinner = ora({spinner: FxSpinner, text: 'fetching the latest featured-addons'.dim}).start();
 
   try {
     const pageSize = args['page-size'] || args.p;

@@ -2,18 +2,11 @@ const api = require('../utils/api');
 const ora = require('ora');
 const colors = require('colors');
 const interactive = require('../utils/interactive');
-
-const firefox = {
-  "interval": 200,
-  "frames": [
-    "🔥 ",
-    "🦊 ",
-  ]
-};
+const { FxSpinner } = require('../utils');
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
-  const spinner = ora({spinner: firefox, text: 'searching for add-ons'.dim}).start();
+  const spinner = ora({spinner: FxSpinner, text: 'searching for add-ons'.dim}).start();
 
   try {
     const query = args['query'] || args.q;

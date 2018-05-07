@@ -22,7 +22,7 @@ const filterValue = (obj, key, value) => obj.find(v => v[key] === value);
 const showAddonDetails = addon => {
   const addonName = addon.name;
   const addonAuthors = addon.authors[0].name;
-  const addonADU = addon.average_daily_users.toString();
+  const addonADU = addon.average_daily_users.toLocaleString();
   const addonVersion = addon.current_version.version;
   const addonLink = addon.url;
   const addonType = addon.type;

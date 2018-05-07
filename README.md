@@ -1,6 +1,6 @@
 # amo-cli
 
-[![language: javascript](https://img.shields.io/badge/language-javascript-yellow.svg)](https://github.com/topics/javascript) [![license: MIT](https://img.shields.io/badge/license-MIT-2a2829.svg)](https://github.com/cedricium/rust-playground/blob/master/LICENSE.md)
+[![npm](https://img.shields.io/npm/v/amo-cli.svg)](https://www.npmjs.com/package/amo-cli) [![language: javascript](https://img.shields.io/badge/language-javascript-yellow.svg)](https://github.com/topics/javascript) [![license: MIT](https://img.shields.io/badge/license-MIT-2a2829.svg)](https://github.com/cedricium/rust-playground/blob/master/LICENSE.md)
 
 A CLI tool used for interacting with https://addons.mozilla.org.
 

@@ -25,19 +25,19 @@ See 'amo help <command>' to read about a specific subcommand.\n`,
 ${'list featured add-ons matching some parameters'.bold}
 
 ${flags}
- ${'-i, --interactive'.padEnd(18)} ${'allows for selecting add-ons to explore their full info'.dim}
+ ${'-i, --interactive'.padEnd(18)} ${'allows for selecting add-ons to explore their details'.dim}
  ${'-p, --page-size'.padEnd(18)} ${'the number of add-ons to get'.dim}
  ${'-u, --show-url'.padEnd(18)} ${`display the add-on's AMO url`.dim}
  ${'-t, --type'.padEnd(18)} ${'filter by add-on type'.dim}\n`,
 
   search: `${usage} amo search ${flagsOptional}
 
-${'search through public add-ons with the ability to filter results'.bold}
+${'search through public add-ons with the ability to filter and sort results'.bold}
 
 ${flags}
- ${'-i, --interactive'.padEnd(18)} ${'allows for selecting add-ons to explore their full info'.dim}
- ${'-q, --query'.padEnd(18)} ${'the search query (maximum allowed length is 100 characters'.dim}
- ${'-p, --page-size'.padEnd(18)} ${'the number of add-ons to get'.dim}
+ ${'-i, --interactive'.padEnd(18)} ${'allows for selecting add-ons to explore their details'.dim}
+ ${'-q, --query'.padEnd(18)} ${'the search query (maximum allowed length is 100 characters)'.dim}
+ ${'-p, --page-size'.padEnd(18)} ${'the number of add-ons to display'.dim}
  ${'-u, --show-url'.padEnd(18)} ${`display the add-on's AMO url`.dim}
  ${'-s, --sort'.padEnd(18)} ${'sorting parameters'.dim}
  ${'-t, --type'.padEnd(18)} ${'filter by add-on type'.dim}\n`,

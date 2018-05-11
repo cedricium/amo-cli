@@ -2,10 +2,11 @@ const api = require('../utils/api');
 const ora = require('ora');
 const colors = require('colors');
 const interactive = require('../utils/interactive');
-const { error, FxSpinner } = require('../utils');
+const { error, FxSpinner, getLocale } = require('../utils');
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
+  const locale = getLocale();
   const spinner = ora({spinner: FxSpinner, text: 'fetching the latest featured-addons'.dim}).start();
 
   try {
@@ -18,7 +19,7 @@ module.exports = async (args) => {
       url: '/addons/featured',
       params: {
         'app': 'firefox',
-        'lang': 'en-US',
+        'lang': locale,
         'page_size': pageSize,
         'type': type
       }
@@ -32,10 +33,10 @@ module.exports = async (args) => {
       interactive(featuredAddons);
     } else {
       featuredAddons.forEach(addon => {
-        const addonName = addon.name['en-US'] || addon.name['en-GB'] || addon.name;
+        const addonName = addon.name || add.name[locale];
         const addonSummary = addon.summary === null
           ? ''
-          : addon.summary['en-US'] || addon.summary['en-GB'];
+          : addon.summary[locale];
         const addonLink = addon.url;
 
         let consoleOutput = '';

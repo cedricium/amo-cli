@@ -1,5 +1,6 @@
 const colors = require('colors');
 const inquirer = require('inquirer');
+const { error, FxSpinner, getLocale } = require('../utils');
 
 module.exports = (args) => {
   inquirer.prompt([
@@ -20,9 +21,13 @@ module.exports = (args) => {
 const filterValue = (obj, key, value) => obj.find(v => v[key] === value);
 
 const showAddonDetails = addon => {
+  const locale = getLocale();
   const addonName = addon.name;
   const addonAuthors = addon.authors[0].name;
-  const addonADU = addon.average_daily_users.toLocaleString();
+  // below .toLocaleString() only works with en-US locale currently
+  // refs: https://stackoverflow.com/a/23200062/6698029
+  //       https://nodejs.org/api/intl.html
+  const addonADU = addon.average_daily_users.toLocaleString(locale);
   const addonVersion = addon.current_version.version;
   const addonLink = addon.url;
   const addonType = addon.type;

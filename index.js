@@ -1,3 +1,4 @@
+const path = require('path');
 const minimist = require('minimist');
 const {error} = require('./utils');
 
@@ -22,6 +23,12 @@ module.exports = () => {
 
     case 'search':
       require('./cmds/search')(args);
+      break;
+
+    case 'locale':
+      const fileName = path.resolve(__dirname, 'config', 'default.json');
+      const configFile = require(fileName);
+      require('./cmds/locale')(configFile, fileName);
       break;
 
     case 'version':

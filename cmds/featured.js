@@ -1,13 +1,16 @@
 const api = require('../utils/api');
 const ora = require('ora');
-const colors = require('colors');
+const colors = require('colors'); // eslint-disable-line no-unused-vars
 const interactive = require('../utils/interactive');
-const { error, FxSpinner, getLocale } = require('../utils');
+const {error, FxSpinner, getLocale} = require('../utils');
 
 module.exports = async (args) => {
   const INDENT_1 = '   ';
   const locale = getLocale();
-  const spinner = ora({spinner: FxSpinner, text: 'fetching the latest featured-addons'.dim}).start();
+  const spinner = ora({
+    spinner: FxSpinner,
+    text: 'fetching the latest featured-addons'.dim,
+  }).start();
 
   try {
     const pageSize = args['page-size'] || args.p;
@@ -21,8 +24,8 @@ module.exports = async (args) => {
         'app': 'firefox',
         'lang': locale,
         'page_size': pageSize,
-        'type': type
-      }
+        'type': type,
+      },
     };
 
     const featuredAddons = (await api(queryParams)).results;
@@ -32,11 +35,8 @@ module.exports = async (args) => {
     if (interactiveMode && featuredAddons.length !== 0) {
       interactive(featuredAddons);
     } else {
-      featuredAddons.forEach(addon => {
+      featuredAddons.forEach((addon) => {
         const addonName = addon.name || add.name[locale];
-        const addonSummary = addon.summary === null
-          ? ''
-          : addon.summary[locale];
         const addonLink = addon.url;
 
         let consoleOutput = '';

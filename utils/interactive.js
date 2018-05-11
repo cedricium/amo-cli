@@ -1,6 +1,6 @@
-const colors = require('colors');
+const colors = require('colors'); // eslint-disable-line no-unused-vars
 const inquirer = require('inquirer');
-const { error, FxSpinner, getLocale } = require('../utils');
+const {getLocale} = require('../utils');
 
 module.exports = (args) => {
   inquirer.prompt([
@@ -9,18 +9,18 @@ module.exports = (args) => {
       name: 'addonSelection',
       message: 'Which add-on would you like to explore:',
       choices: args,
-      pageSize: 115
-    }
+      pageSize: 115,
+    },
   ])
-  .then(answers => {
+  .then((answers) => {
     selectedAddon = filterValue(args, 'name', answers.addonSelection);
     showAddonDetails(selectedAddon);
   });
 };
 
-const filterValue = (obj, key, value) => obj.find(v => v[key] === value);
+const filterValue = (obj, key, value) => obj.find((v) => v[key] === value);
 
-const showAddonDetails = addon => {
+const showAddonDetails = (addon) => {
   const locale = getLocale();
   const addonName = addon.name;
   const addonAuthors = addon.authors[0].name;

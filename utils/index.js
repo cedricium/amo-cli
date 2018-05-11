@@ -1,8 +1,5 @@
 const config = require('config');
-const path = require('path');
-const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
-const configFile = require(fileName);
-const { red } = require('colors');
+const {red} = require('colors'); // eslint-disable-line no-unused-vars
 
 exports.error = (message, exit) => {
   console.error('ERROR: '.red + message);
@@ -10,16 +7,16 @@ exports.error = (message, exit) => {
 };
 
 exports.FxSpinner = {
-  "interval": 200,
-  "frames": [
-    "🔥 ",
-    "🦊 ",
-  ]
+  'interval': 200,
+  'frames': [
+    '🔥 ',
+    '🦊 ',
+  ],
 };
 
 exports.getLocale = () => {
   return config.get('locale');
-}
+};
 
 exports.countries = [
   'ar',
@@ -61,5 +58,5 @@ exports.countries = [
   'vi',
   'zh',
   'zh-CN',
-  'zh-TW'
+  'zh-TW',
 ];

@@ -1,10 +1,11 @@
-const colors = require('colors');
+/* eslint-disable max-len */
+
+const colors = require('colors'); // eslint-disable-line no-unused-vars
 
 const usage = 'Usage:'.bold;
 const commands = 'Commands:'.blue;
 const flags = 'Flags:'.blue;
 const flagsOptional = '[flags]'.blue;
-const note = 'Note:'.bold;
 const amoLink = 'https://addons.mozilla.org'.blue;
 
 const menus = {

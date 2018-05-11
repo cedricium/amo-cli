@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "A CLI tool used to interact with the Firefox AMO (https://addons.mozilla.org).",
   "scripts": {
-    "lint": "eslint . --ext .json",
+    "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "echo \"No tests\""
   },
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1",
     "eslint-plugin-json": "^1.2.0"
   }
 }

@@ -8,6 +8,12 @@ const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
 const configFile = require(fileName);
 const {countries} = require('../utils');
 
+// Dirty way to bypass TravisCI build process failing due to a timeout
+// waiting for inquirer inputs. Will need to revisit.
+if (process.env.USE_DETECTED_LOCALE) {
+  process.exit(0);
+}
+
 // Getting the user's system locale...
 let userLocale = osLocale.sync();
 

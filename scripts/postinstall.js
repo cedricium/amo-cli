@@ -9,19 +9,25 @@ if (process.env.USE_DETECTED_LOCALE) {
   process.exit(0);
 }
 
-if (!fs.existsSync(path.resolve(__dirname, '..', 'config'))) {
-  fs.mkdirSync(path.resolve(__dirname, '..', 'config'));
+const configDir = path.join(__dirname, '..', 'config');
+
+if (!fs.existsSync(configDir)) {
+  fs.mkdirSync(configDir);
   const localeSetting = {locale: ''};
-  fs.writeFileSync(path.resolve(__dirname, '..', 'config', 'default.json'), JSON.stringify(localeSetting, null, 2), {flags: 'as'});
+  fs.writeFileSync(
+    path.resolve(configDir, 'default.json'),
+    JSON.stringify(localeSetting, null, 2),
+    {flags: 'as'}
+  );
 }
 
-const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
+const fileName = path.resolve(configDir, 'default.json');
 const configFile = require(fileName);
 
 // Setup locale setting
 require('../cmds/locale')(configFile, fileName, displayReadyMessage);
 
 function displayReadyMessage() {
-  console.log(`You're all set. Use 'amo help' to learn how to get started. Enjoy!
-  If you would like to change your locale, run 'amo locale'.`);
+  console.log(`You're all set. Use 'amo help' to learn how to get started.
+  If you would like to change your locale, run 'amo locale'. Enjoy!`);
 }

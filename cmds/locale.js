@@ -9,7 +9,7 @@ module.exports = (configFile, fileName, callback) => {
 
   const questions = [
     {
-      message: `Use the detected system locale (${userLocale}) for AMO queries?`,
+      message: `Use detected system locale (${userLocale}) for AMO queries?`,
       type: 'confirm',
       name: 'useSystemLocale',
       default: true,
@@ -30,7 +30,9 @@ module.exports = (configFile, fileName, callback) => {
 
   inquirer.prompt(questions)
   .then((answers) => {
-    userLocale = (answers.localeSelection) ? answers.localeSelection : userLocale;
+    userLocale = (answers.localeSelection)
+      ? answers.localeSelection
+      : userLocale;
     // Setting user locale to the config file
     configFile.locale = userLocale;
     fs.writeFile(fileName, JSON.stringify(configFile, null, 2), (err) => {

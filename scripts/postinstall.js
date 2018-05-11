@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 const osLocale = require('os-locale');
-const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
-const configFile = require(fileName);
+// const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
+// const configFile = require(fileName);
 const {countries} = require('../utils');
 
 // Dirty way to bypass TravisCI build process failing due to a timeout
@@ -13,6 +13,15 @@ const {countries} = require('../utils');
 if (process.env.USE_DETECTED_LOCALE) {
   process.exit(0);
 }
+
+if (!fs.existsSync(path.resolve(__dirname, '..', 'config'))) {
+  fs.mkdirSync(path.resolve(__dirname, '..', 'config'));
+  const localeSetting = {locale: ""};
+  fs.writeFileSync(path.resolve(__dirname, '..', 'config', 'default.json'), JSON.stringify(localeSetting, null, 2), {flags: 'as'});
+}
+
+const fileName = path.resolve(__dirname, '..', 'config', 'default.json');
+const configFile = require(fileName);
 
 // Getting the user's system locale...
 let userLocale = osLocale.sync();

@@ -3,7 +3,10 @@
   "version": "0.1.1",
   "description": "A CLI tool used to interact with the Firefox AMO (https://addons.mozilla.org).",
   "scripts": {
-    "postinstall": "node scripts/postinstall"
+    "postinstall": "node scripts/postinstall",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "echo \"No tests\""
   },
   "bin": {
     "amo": "bin/amo"
@@ -37,5 +40,8 @@
     "ora": "^2.1.0",
     "os-locale": "^2.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  }
 }

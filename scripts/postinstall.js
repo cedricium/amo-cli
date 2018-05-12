@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
+/* eslint-disable max-len */
+
 const fs = require('fs');
 const path = require('path');
+const {bold} = require('colors'); // eslint-disable-line no-unused-vars
 
 // Dirty way to bypass TravisCI build process failing due to a timeout
 // waiting for inquirer inputs. Will need to revisit.
@@ -28,6 +31,9 @@ const configFile = require(fileName);
 require('../cmds/locale')(configFile, fileName, displayReadyMessage);
 
 function displayReadyMessage() {
-  console.log(`You're all set. Use 'amo help' to learn how to get started.
-  If you would like to change your locale, run 'amo locale'. Enjoy!`);
+  const readyMessage =
+  `\n  You're' all set! Type ${`'amo help'`.bold} to learn how to get started. If
+  you would like to change your locale in the future, run ${`'amo locale'`.bold}.\n`;
+
+  console.log(readyMessage);
 }

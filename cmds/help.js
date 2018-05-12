@@ -19,6 +19,9 @@ ${commands}
  ${'version'.padEnd(18)} ${'show package version'.dim}
  ${'help'.padEnd(18)} ${'show help menu for a command'.dim}
 
+${`Settings-specific commands`.blue}:
+ ${'locale'.padEnd(18)} ${'change the selected locale'.dim}
+
 See 'amo help <command>' to read about a specific subcommand.\n`,
 
   featured: `${usage} amo featured ${flagsOptional}
@@ -42,6 +45,10 @@ ${flags}
  ${'-u, --show-url'.padEnd(18)} ${`display the add-on's AMO url`.dim}
  ${'-s, --sort'.padEnd(18)} ${'sorting parameters'.dim}
  ${'-t, --type'.padEnd(18)} ${'filter by add-on type'.dim}\n`,
+
+  locale: `${usage} amo locale
+
+  ${'launch the locale selection prompt, overriding the previously-set locale'.bold}\n`,
 };
 
 module.exports = (args) => {

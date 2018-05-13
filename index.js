@@ -1,3 +1,8 @@
+// node-config looks for the config directory in `pwd` - throwing warnings when
+// not found. Setting the `NODE_CONFIG_DIR` fixes this issue.
+// Refs: https://github.com/lorenwest/node-config/wiki/Configuration-Files#config-directory
+process.env['NODE_CONFIG_DIR'] = __dirname + '/config/';
+
 const path = require('path');
 const minimist = require('minimist');
 const {error} = require('./utils');

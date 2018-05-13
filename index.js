@@ -1,5 +1,6 @@
+const path = require('path');
 const minimist = require('minimist');
-const { error } = require('./utils');
+const {error} = require('./utils');
 
 module.exports = () => {
   const args = minimist(process.argv.slice(2));
@@ -8,7 +9,7 @@ module.exports = () => {
   let cmd = args._[0] || 'help';
 
   if (args.v || args.version) {
-    cmd = 'version';  
+    cmd = 'version';
   }
 
   if (args.h || args.help) {
@@ -22,6 +23,12 @@ module.exports = () => {
 
     case 'search':
       require('./cmds/search')(args);
+      break;
+
+    case 'locale':
+      const fileName = path.resolve(__dirname, 'config', 'default.json');
+      const configFile = require(fileName);
+      require('./cmds/locale')(configFile, fileName);
       break;
 
     case 'version':

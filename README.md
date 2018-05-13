@@ -64,6 +64,8 @@ Featured add-ons
 |          | -s, --sort        | sorting parameters |
 |          | -t, --type        | filter by add-on type |
 |                                            |
+| locale   |                   | launch the locale selection prompt, overriding the previously-set locale |
+|                                            |
 | help     |                   | displays the default help message |
 |          | `command`         | displays the help message for the given command |
 |                                            |

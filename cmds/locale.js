@@ -5,7 +5,9 @@ const {countries} = require('../utils');
 
 module.exports = (configFile, fileName, callback) => {
   // Getting the user's system locale...
-  let userLocale = osLocale.sync();
+  // Regex .replace() used to replace '_' with '-'. Something like
+  // 'en_US' will not work when passed into the .toLocaleString() method.
+  let userLocale = osLocale.sync().replace(/_/g, '-');
 
   const questions = [
     {

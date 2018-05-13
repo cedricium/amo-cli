@@ -15,7 +15,8 @@ exports.FxSpinner = {
 };
 
 exports.getLocale = () => {
-  return config.get('locale');
+  // Fallback to 'en-US' in the case that `locale` never gets set somehow
+  return config.get('locale') || 'en-US';
 };
 
 exports.countries = [

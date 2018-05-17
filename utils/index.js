@@ -2,7 +2,7 @@ const config = require('config');
 const {red} = require('colors'); // eslint-disable-line no-unused-vars
 
 exports.error = (message, exit) => {
-  console.error('ERROR: '.red + message);
+  console.error(`amo ERR:`.padEnd(10).red + message);
   exit && process.exit(1);
 };
 
